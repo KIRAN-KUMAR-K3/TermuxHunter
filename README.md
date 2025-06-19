@@ -48,7 +48,7 @@ wget -qO- https://raw.githubusercontent.com/KIRAN-KUMAR-K3/TermuxHunter/main/kal
 
 ```bash
 pkg update && pkg install wget -y
-wget -qO- https://raw.githubusercontent.com/xiv3r/Termux-Pentesting-Distro/main/KaliLinux/Chroot/kali-minimal | bash && kali
+wget -qO- https://raw.githubusercontent.com/KIRAN-KUMAR-K3/DistroLab-Termux/main/KaliLinux/Chroot/kali-minimal | bash && kali
 ```
 
 ---
