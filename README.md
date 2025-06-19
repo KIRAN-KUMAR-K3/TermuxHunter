@@ -170,7 +170,7 @@ Cybersecurity Enthusiast | VAPT | Bug Bounty Hunter
 
 ## 📜 License
 
-Released under the [MIT License](https://choosealicense.com/licenses/mit/).
+Released under the [MIT License](/LICENSE).
 
 ---
 
