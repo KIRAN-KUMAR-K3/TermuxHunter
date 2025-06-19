@@ -1,113 +1,111 @@
 <h1 align="center">🚀 TermuxHunter</h1>
-<h4 align="center">💻 Run Kali NetHunter GUI & CLI in Termux — No Root Required!</h4>
+<h3 align="center">💻 Run Kali NetHunter (GUI + CLI) in Termux on Android — No Root Required!</h3>
 
 <p align="center">
-  <img src="images/kalivnc.jpg" width="90%" alt="Kali VNC Screenshot">
+  <img src="images/kalivnc.jpg" width="90%" alt="TermuxHunter VNC Preview">
 </p>
 
 ---
 
-## 🧠 About the Project
+## 🧠 About
 
-**TermuxHunter** is a powerful mobile pentesting platform that lets you run **Kali Linux NetHunter** inside **Termux** — fully loaded with CLI tools, GUI via VNC, and shell configurations. It’s designed for Android devices without requiring root access.
+**TermuxHunter** is a mobile pentesting framework that brings **Kali Linux NetHunter** to your Android device through **Termux**. No root access is required — just a few commands to unlock both **CLI** and **GUI via VNC** access.
 
-Whether you’re a bug bounty hunter, ethical hacker, or CTF enthusiast, TermuxHunter brings Kali to your pocket — complete with **auto-install scripts**, **shell enhancements**, and **phantom process killer fix**.
-
----
-
-## 📦 Features
-
-- 🔧 Full & Minimal Kali NetHunter install
-- 🖥️ VNC GUI support
-- ⚙️ Custom bash/zsh configs
-- 🧵 Lightweight, rootless setup
-- 🔐 Non-root login with `kali`, root with `kali -r`
-- 🧬 Phantom process killer patch via ADB
+Whether you're an ethical hacker, CTF player, or cybersecurity student, this project gives you a lightweight, fully featured, on-the-go Kali setup — with bash/zsh customizations and fixes for Android’s background-killing behavior.
 
 ---
 
-## 🛠️ Requirements
+## 🔍 Features
 
-- Android (ARM64)
-- 15GB free storage
-- [Termux App (v0.118.2)](https://github.com/termux/termux-app/releases/download/v0.118.2/termux-app_v0.118.2+github-debug_arm64-v8a.apk)
-- [VNC Viewer (Kex)](https://store.nethunter.com/repo/com.offsec.nethunter.kex_11525001.apk)
+- ✅ Rootless Kali NetHunter installation
+- ✅ Choose between **Minimal CLI** or **Full GUI (VNC)**
+- ✅ Shell enhancements using bash/zsh
+- ✅ Easy user/root switching
+- ✅ Phantom Process Killer fix via ADB
+- ✅ Clean uninstall support
 
 ---
 
-## ⚡ Quick Installation
+## 🧰 Requirements
 
-### 🔹 Full Kali NetHunter + VNC (Recommended)
+- 📱 Android device (ARM64 architecture)
+- 💾 15GB free internal storage
+- 📦 [Termux v0.118.2 (GitHub build)](https://github.com/termux/termux-app/releases/download/v0.118.2/termux-app_v0.118.2+github-debug_arm64-v8a.apk)
+- 🖥️ [VNC Viewer App (KeX)](https://store.nethunter.com/repo/com.offsec.nethunter.kex_11525001.apk)
+
+---
+
+## ⚙️ Quick Install
+
+### 🔸 Full Kali NetHunter + GUI (Recommended)
+
 ```bash
 pkg update && pkg install wget -y
-wget -qO- https://raw.githubusercontent.com/KIRAN-KUMAR-K3/TermuxHunter/refs/heads/main/kali_nethunter/kali-full | bash && kali
+wget -qO- https://raw.githubusercontent.com/KIRAN-KUMAR-K3/TermuxHunter/main/kali-full | bash && kali
 ````
 
-### 🔹 Minimal Kali NetHunter (CLI Only)
+### 🔹 Minimal Kali NetHunter (CLI only)
 
 ```bash
 pkg update && pkg install wget -y
-wget -qO- https://raw.githubusercontent.com/xiv3r/Termux-Pentesting-Distro/refs/heads/main/KaliLinux/Chroot/kali-minimal | bash && kali
+wget -qO- https://raw.githubusercontent.com/xiv3r/Termux-Pentesting-Distro/main/KaliLinux/Chroot/kali-minimal | bash && kali
 ```
 
 ---
 
-## 🖥️ VNC GUI Setup
+## 🖥️ Setting Up VNC GUI
 
-1. Set VNC password:
+1. **Set your VNC password**:
 
-```bash
-kali vnc passwd
-```
+   ```bash
+   kali vnc passwd
+   ```
 
-2. Start VNC service:
+2. **Start the VNC server**:
 
-```bash
-kali vnc &
-```
+   ```bash
+   kali vnc &
+   ```
 
-3. Open VNC Viewer and connect to:
+3. **Open your VNC Viewer app** and connect to:
 
-```
-127.0.0.1:5901
-```
+   ```
+   127.0.0.1:5901
+   ```
 
-Username: `kali`
-Password: *(your VNC password)*
+   **Username:** `kali`
+   **Password:** *(Use what you set in step 1. You can also use `kali` for simplicity)*
+
+> 📌 **Tip:** You must keep Termux running in the background while using VNC.
 
 <p align="center">
-  <img src="images/vncsetup.png" width="60%" alt="VNC Setup">
+  <img src="images/vncsetup.png" width="70%" alt="VNC Setup Preview">
 </p>
 
 ---
 
-## 🔓 Access & Management
+## 🧑‍💻 User Management
 
 | Action         | Command          |
 | -------------- | ---------------- |
-| Login as User  | `kali`           |
-| Login as Root  | `kali -r`        |
-| Exit Session   | `exit`           |
+| Login (User)   | `kali`           |
+| Login (Root)   | `kali -r`        |
+| Exit           | `exit`           |
 | Uninstall Kali | `kali-uninstall` |
 
 ---
 
-## 🧬 Phantom Process Killer Fix (Optional)
+## 🧬 Fix: Phantom Process Killer (Optional)
 
-Fix Android’s aggressive background process killer using **Shizuku + ADB shell**.
+On some Android devices, background processes like VNC may be force-stopped. Here’s how to fix that:
 
-### 🔹 Steps
+### 🔧 What You Need
 
-1. Download & install:
+* [Shizuku](https://github.com/RikkaApps/Shizuku/releases)
+* [aShell](https://github.com/DP-Hridayan/aShellYou/releases)
+* Developer Options → **Enable Wireless Debugging**
 
-   * [Shizuku](https://github.com/RikkaApps/Shizuku/releases)
-   * [aShell](https://github.com/DP-Hridayan/aShellYou/releases)
-
-2. Enable **wireless debugging** via Developer Options
-
-3. Pair with Shizuku and grant access to aShell
-
-4. Run the following commands:
+### 🛠️ Run These ADB Commands (via aShell):
 
 ```bash
 adb shell /system/bin/device_config set_sync_disabled_for_tests persistent
@@ -115,16 +113,19 @@ adb shell /system/bin/device_config put activity_manager max_phantom_processes 2
 adb shell settings put global settings_enable_monitor_phantom_procs false
 ```
 
-### 🔎 Verify:
+### ✅ Verify the Fix:
 
 ```bash
 adb shell /system/bin/device_config get activity_manager max_phantom_processes
 adb shell dumpsys activity settings | grep max_phantom_processes
 ```
 
+> 🛑 **Common Issue:**
+> If you see: `Process completed (signal 9) - press Enter`, it means the phantom process killer is active. Apply the fix above.
+
 ---
 
-## 🧰 File Structure
+## 📂 Project Structure
 
 ```bash
 TermuxHunter/
@@ -148,6 +149,16 @@ TermuxHunter/
 
 ---
 
+## 🖼️ Terminal Preview
+
+> Password Prompt Example: `kali`
+
+<p align="center">
+  <img src="images/kalinh.png" width="80%" alt="Terminal View">
+</p>
+
+---
+
 ## 👨‍💻 Author
 
 **Kiran Kumar K**
@@ -159,9 +170,8 @@ Cybersecurity Enthusiast | VAPT | Bug Bounty Hunter
 
 ## 📜 License
 
-This project is open-source and available under the [MIT License](https://choosealicense.com/licenses/mit/).
+Released under the [MIT License](https://choosealicense.com/licenses/mit/).
 
 ---
 
-> 🚨 **Disclaimer:** This tool is intended for educational and ethical purposes only. Unauthorized use against systems you don’t own is illegal and strictly prohibited.
-
+> 🚨 **Disclaimer:** This project is for educational and ethical hacking purposes only. Do **not** use it on unauthorized systems. You are responsible for your actions.
